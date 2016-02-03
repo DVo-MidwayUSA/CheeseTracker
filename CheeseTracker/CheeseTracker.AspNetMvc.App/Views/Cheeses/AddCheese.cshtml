@@ -2,3 +2,15 @@
 
 <h2>Add a New Cheese to the CCCC Registry</h2>
 
+@using (Html.BeginForm("AddCheese", "Cheeses", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Description)
+        @Html.TextAreaFor(x => x.Description)
+    </div>
+}

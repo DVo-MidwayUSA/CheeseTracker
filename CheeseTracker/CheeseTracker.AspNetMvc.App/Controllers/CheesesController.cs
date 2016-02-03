@@ -32,8 +32,13 @@ namespace CheeseTracker.AspNetMvc.App.Controllers
         [HttpPost]
         public ActionResult AddCheese(AddCheeseViewModel viewModel)
         {
-            this.imageConverterService.Convert(viewModel.Image.InputStream);
-            this.cheeseService.Register(new Cheese());
+            this.cheeseService.Register(
+                new Cheese
+                    {
+                        Name = viewModel.Name,
+                        Description = viewModel.Description,
+                        Image = this.imageConverterService.Convert(viewModel.Image.InputStream)
+                    });
 
             this.TempData["SuccessMessage"] = @"Yay! Your cheese is legit!";
             return RedirectToAction("AddCheese");

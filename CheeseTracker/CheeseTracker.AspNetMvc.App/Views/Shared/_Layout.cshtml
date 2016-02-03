@@ -7,6 +7,14 @@
     <link href="~/Content/main.css" rel="stylesheet" />
 </head>
 <body>
+    <header>
+        <h1>@Html.ActionLink("Cheese Tracker", "Index", "Home")</h1>
+        <nav>
+            <ul>
+                <li>@Html.ActionLink("MOAR Cheese!", "AddCheese", "Cheeses")</li>
+            </ul>
+        </nav>
+    </header>
     @RenderBody()
 </body>
 </html>

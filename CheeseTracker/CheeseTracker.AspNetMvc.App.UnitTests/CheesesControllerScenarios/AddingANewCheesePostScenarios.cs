@@ -3,7 +3,8 @@ using CheeseTracker.AspNetMvc.Services.Models;
 using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Should;
-using System.IO;
+using System;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,12 +13,23 @@ namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios
     [TestClass]
     public class AddingANewCheesePostScenarios : CheesesControllerScenarioBase
     {
+        private string base64EncodedImage;
+
         private AddCheeseViewModel viewModel;
 
         protected override void Arrange()
         {
             base.Arrange();
-            this.viewModel = new AddCheeseViewModel { Image = A.Fake<HttpPostedFileBase>() };
+            this.base64EncodedImage = "base64ImageEncoding";
+
+            this.viewModel = new AddCheeseViewModel
+                {
+                    Name = "Name",
+                    Description = "Description",
+                    Image = A.Fake<HttpPostedFileBase>()
+                };
+
+            A.CallTo(() => this.ImageConverterService.Convert(this.viewModel.Image.InputStream)).Returns(this.base64EncodedImage);
         }
 
         private void Act()
@@ -40,17 +52,15 @@ namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios
         }
 
         [TestMethod]
-        public void ShouldCallCheeseServiceToRegisterCheese()
+        public void ShouldCallCheeseServiceToRegisterAMappedCheese()
         {
             this.Act();
-            A.CallTo(() => this.CheeseService.Register(A<Cheese>._)).MustHaveHappened();
-        }
+            Expression<Func<Cheese, bool>> expected = x => 
+                x.Name == this.viewModel.Name &&
+                x.Description == this.viewModel.Description &&
+                x.Image == this.base64EncodedImage;
 
-        [TestMethod]
-        public void Test()
-        {
-            this.Act();
-            A.CallTo(() => this.ImageConverterService.Convert(A<Stream>._)).MustHaveHappened();
+            A.CallTo(() => this.CheeseService.Register(A<Cheese>.That.Matches(expected))).MustHaveHappened();
         }
     }
 }
