@@ -100,6 +100,10 @@
       <Project>{bc9b2643-9e2c-4755-857b-0287a7c46b25}</Project>
       <Name>CheeseTracker.AspNetMvc.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CheeseTracker.Common.Services\CheeseTracker.Common.Services.csproj">
+      <Project>{d9172d6b-20d4-4bf1-93a1-d278c9112f72}</Project>
+      <Name>CheeseTracker.Common.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -4,6 +4,6 @@ namespace CheeseTracker.AspNetMvc.Services
 {
     public interface ICheeseService
     {
-        void Register(Cheese _);
+        void Register(Cheese cheese);
     }
 }

@@ -11,3 +11,8 @@
 /CheeseTracker/CheeseTracker.AspNetMvc.App/obj/Debug
 /CheeseTracker/CheeseTracker.AspNetMvc.App/bin
 /CheeseTracker/.vs/config
+/CheeseTracker/CheeseTracker.Common.Services.UnitTests/obj/Debug
+/CheeseTracker/CheeseTracker.Common.Services/obj/Debug
+/CheeseTracker/CheeseTracker.AspNetMvc.Services.UnitTests/obj/Debug
+/CheeseTracker/CheeseTracker.AspNetMvc.Services/obj/Debug
+/CheeseTracker/CheeseTracker.AspNetMvc.App.UnitTests/bin/Debug
