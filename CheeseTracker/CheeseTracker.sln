@@ -3,8 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheeseTracker.AspNetMvc.App", "CheeseTracker.AspNetMvc.App\CheeseTracker.AspNetMvc.App.csproj", "{B26CBE8C-D098-436D-BFD8-973E5320570A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheeseTracker.AspNetMvc.App.UnitTests", "CheeseTracker.AspNetMvc.App.UnitTests\CheeseTracker.AspNetMvc.App.UnitTests.csproj", "{34E2FF82-B7DD-416A-B63D-D71F10389FA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspNetMvc", "AspNetMvc", "{57A890D5-1CAB-43FB-8D5D-1EA5B8BB7814}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspNetMvc.App", "AspNetMvc.App", "{743577D8-4ED2-4759-A74C-E8B3D5475455}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B26CBE8C-D098-436D-BFD8-973E5320570A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B26CBE8C-D098-436D-BFD8-973E5320570A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B26CBE8C-D098-436D-BFD8-973E5320570A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B26CBE8C-D098-436D-BFD8-973E5320570A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34E2FF82-B7DD-416A-B63D-D71F10389FA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34E2FF82-B7DD-416A-B63D-D71F10389FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34E2FF82-B7DD-416A-B63D-D71F10389FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34E2FF82-B7DD-416A-B63D-D71F10389FA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B26CBE8C-D098-436D-BFD8-973E5320570A} = {743577D8-4ED2-4759-A74C-E8B3D5475455}
+		{34E2FF82-B7DD-416A-B63D-D71F10389FA9} = {743577D8-4ED2-4759-A74C-E8B3D5475455}
+		{743577D8-4ED2-4759-A74C-E8B3D5475455} = {57A890D5-1CAB-43FB-8D5D-1EA5B8BB7814}
 	EndGlobalSection
 EndGlobal
