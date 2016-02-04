@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 namespace CheeseTracker.Common.Services
 {
@@ -7,7 +6,7 @@ namespace CheeseTracker.Common.Services
     {
         public string Convert(Stream stream)
         {
-            throw new NotImplementedException();
+            return "image";
         }
     }
 }

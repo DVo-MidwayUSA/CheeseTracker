@@ -8,10 +8,10 @@ using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios
+namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios.AddingANewCheeseScenarios
 {
     [TestClass]
-    public class AddingANewCheesePostScenarios : CheesesControllerScenarioBase
+    public class PostScenarios : CheesesControllerScenarioBase
     {
         private string base64EncodedImage;
 
@@ -20,6 +20,7 @@ namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios
         protected override void Arrange()
         {
             base.Arrange();
+
             this.base64EncodedImage = "base64ImageEncoding";
 
             this.viewModel = new AddCheeseViewModel
@@ -29,7 +30,9 @@ namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios
                     Image = A.Fake<HttpPostedFileBase>()
                 };
 
-            A.CallTo(() => this.ImageConverterService.Convert(this.viewModel.Image.InputStream)).Returns(this.base64EncodedImage);
+            A.CallTo(
+                () => this.ImageConverterService
+                    .Convert(this.viewModel.Image.InputStream)).Returns(this.base64EncodedImage);
         }
 
         private void Act()
@@ -55,6 +58,7 @@ namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios
         public void ShouldCallCheeseServiceToRegisterAMappedCheese()
         {
             this.Act();
+
             Expression<Func<Cheese, bool>> expected = x => 
                 x.Name == this.viewModel.Name &&
                 x.Description == this.viewModel.Description &&

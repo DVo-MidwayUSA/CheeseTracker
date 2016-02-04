@@ -3,10 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Should;
 using System.Web.Mvc;
 
-namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios
+namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios.AddingANewCheeseScenarios
 {
     [TestClass]
-    public class AddingANewCheeseGetScenarios : CheesesControllerScenarioBase
+    public class GetScenarios : CheesesControllerScenarioBase
     {
         private void Act()
         {

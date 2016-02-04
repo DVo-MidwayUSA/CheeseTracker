@@ -56,6 +56,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -97,6 +98,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\CheeseTrackerDb.mdf" />
+    <Content Include="App_Data\CheeseTrackerDb_log.ldf">
+      <DependentUpon>CheeseTrackerDb.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\main.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\main.less" />
@@ -113,6 +118,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Injection\Installers\DataAccessInstaller.cs" />
     <Compile Include="Injection\Installers\ServicesInstaller.cs" />
     <Compile Include="Injection\Installers\ControllersInstaller.cs" />
     <Compile Include="Injection\WindsorControllerFactory.cs" />
@@ -137,6 +143,10 @@
     <ProjectReference Include="..\CheeseTracker.AspNetMvc.Services\CheeseTracker.AspNetMvc.Services.csproj">
       <Project>{bc9b2643-9e2c-4755-857b-0287a7c46b25}</Project>
       <Name>CheeseTracker.AspNetMvc.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CheeseTracker.Common.DataAccess\CheeseTracker.Common.DataAccess.csproj">
+      <Project>{b7a48e95-3477-4c50-8bb0-aa94fd857205}</Project>
+      <Name>CheeseTracker.Common.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\CheeseTracker.Common.Services\CheeseTracker.Common.Services.csproj">
       <Project>{d9172d6b-20d4-4bf1-93a1-d278c9112f72}</Project>

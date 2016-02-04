@@ -84,8 +84,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheesesControllerScenarios\AddingANewCheeseGetScenarios.cs" />
-    <Compile Include="CheesesControllerScenarios\AddingANewCheesePostScenarios.cs" />
+    <Compile Include="CheesesControllerScenarios\AddingANewCheeseScenarios\GetScenarios.cs" />
+    <Compile Include="CheesesControllerScenarios\AddingANewCheeseScenarios\PostInvalidModelStateScenarios.cs" />
+    <Compile Include="CheesesControllerScenarios\AddingANewCheeseScenarios\PostScenarios.cs" />
     <Compile Include="CheesesControllerScenarios\CheesesControllerScenarioBase.cs" />
     <Compile Include="HomeControllerScenarios\HomepageDisplayScenarios.cs" />
     <Compile Include="ScenarioBase.cs" />

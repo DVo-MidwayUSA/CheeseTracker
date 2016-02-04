@@ -32,6 +32,11 @@ namespace CheeseTracker.AspNetMvc.App.Controllers
         [HttpPost]
         public ActionResult AddCheese(AddCheeseViewModel viewModel)
         {
+            if (ModelState.IsValid == false)
+            {
+                return View("AddCheese", viewModel);
+            }
+
             this.cheeseService.Register(
                 new Cheese
                     {
@@ -41,6 +46,7 @@ namespace CheeseTracker.AspNetMvc.App.Controllers
                     });
 
             this.TempData["SuccessMessage"] = @"Yay! Your cheese is legit!";
+
             return RedirectToAction("AddCheese");
         }
     }

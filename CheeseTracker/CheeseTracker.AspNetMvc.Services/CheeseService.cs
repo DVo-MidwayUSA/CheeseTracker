@@ -1,13 +1,33 @@
-﻿using System;
-using CheeseTracker.AspNetMvc.Services.Models;
+﻿using CheeseTracker.AspNetMvc.Services.Models;
+using CheeseTracker.Common.DataAccess;
+using System;
 
 namespace CheeseTracker.AspNetMvc.Services
 {
     public class CheeseService : ICheeseService
     {
+        private readonly IUnitOfWork unitOfWork;
+
+        private readonly IRepository<CheeseData> cheeseDataRepository;
+
+        public CheeseService(IUnitOfWork unitOfWork)
+        {
+            this.unitOfWork = unitOfWork;
+            this.cheeseDataRepository = unitOfWork.CheeseDataRepository;
+        }
+
         public void Register(Cheese cheese)
         {
-            throw new NotImplementedException();
+            this.cheeseDataRepository.Create(
+                new CheeseData
+                    {
+                        Name = cheese.Name,
+                        Description = cheese.Description,
+                        Image = cheese.Image,
+                        Created = DateTime.Now
+                    });
+
+            this.unitOfWork.Save();
         }
     }
 }

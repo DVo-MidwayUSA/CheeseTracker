@@ -44,6 +44,12 @@
     <Compile Include="ImageConverterService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CheeseTracker.Common.DataAccess\CheeseTracker.Common.DataAccess.csproj">
+      <Project>{b7a48e95-3477-4c50-8bb0-aa94fd857205}</Project>
+      <Name>CheeseTracker.Common.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
