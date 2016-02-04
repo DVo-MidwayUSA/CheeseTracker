@@ -1,12 +1,17 @@
-﻿using System.IO;
+﻿using System.Data.Linq;
+using System.IO;
 
 namespace CheeseTracker.Common.Services
 {
     public class ImageConverterService : IImageConverterService
     {
-        public string Convert(Stream stream)
+        public Binary ConvertToBinary(Stream stream)
         {
-            return "image";
+            using (var memoryStream = new MemoryStream())
+            {
+                stream.CopyTo(memoryStream);
+                return memoryStream.ToArray();
+            }
         }
     }
 }

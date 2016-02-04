@@ -15,7 +15,7 @@ namespace CheeseTracker.AspNetMvc.Services.UnitTests.CheeseServiceScenarios
         protected override void Arrange()
         {
             base.Arrange();
-            this.model = new Cheese { Name = "Name", Description = "Description", Image = "Image" };
+            this.model = new Cheese { Name = "Name", Description = "Description", Image = new byte[0] };
         }
 
         private void Act()

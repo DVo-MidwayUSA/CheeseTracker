@@ -1,9 +1,10 @@
-﻿using System.IO;
+﻿using System.Data.Linq;
+using System.IO;
 
 namespace CheeseTracker.Common.Services
 {
     public interface IImageConverterService
     {
-        string Convert(Stream stream);
+        Binary ConvertToBinary(Stream stream);
     }
 }

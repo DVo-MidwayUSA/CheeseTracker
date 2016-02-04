@@ -86,7 +86,7 @@ namespace CheeseTracker.Common.DataAccess
 		
 		private string _Description;
 		
-		private string _Image;
+		private System.Data.Linq.Binary _Image;
 		
 		private System.DateTime _Created;
 		
@@ -102,7 +102,7 @@ namespace CheeseTracker.Common.DataAccess
     partial void OnNameChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
-    partial void OnImageChanging(string value);
+    partial void OnImageChanging(System.Data.Linq.Binary value);
     partial void OnImageChanged();
     partial void OnCreatedChanging(System.DateTime value);
     partial void OnCreatedChanged();
@@ -175,8 +175,8 @@ namespace CheeseTracker.Common.DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public string Image
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image
 		{
 			get
 			{

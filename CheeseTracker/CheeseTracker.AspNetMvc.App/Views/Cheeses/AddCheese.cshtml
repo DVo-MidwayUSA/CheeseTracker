@@ -2,6 +2,13 @@
 
 <h2>Add a New Cheese to the CCCC Registry</h2>
 
+@if (TempData["SuccessMessage"] != null)
+{
+    <div>
+        @TempData["SuccessMessage"]
+    </div>
+}
+
 @using (Html.BeginForm("AddCheese", "Cheeses", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div>

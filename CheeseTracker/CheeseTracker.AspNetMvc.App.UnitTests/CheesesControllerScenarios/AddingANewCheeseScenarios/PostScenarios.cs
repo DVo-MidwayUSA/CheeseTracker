@@ -4,6 +4,7 @@ using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Should;
 using System;
+using System.Data.Linq;
 using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
@@ -13,7 +14,7 @@ namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios.Addin
     [TestClass]
     public class PostScenarios : CheesesControllerScenarioBase
     {
-        private string base64EncodedImage;
+        private Binary imageBinary;
 
         private AddCheeseViewModel viewModel;
 
@@ -21,7 +22,7 @@ namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios.Addin
         {
             base.Arrange();
 
-            this.base64EncodedImage = "base64ImageEncoding";
+            this.imageBinary = new byte[0];
 
             this.viewModel = new AddCheeseViewModel
                 {
@@ -32,7 +33,7 @@ namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios.Addin
 
             A.CallTo(
                 () => this.ImageConverterService
-                    .Convert(this.viewModel.Image.InputStream)).Returns(this.base64EncodedImage);
+                    .ConvertToBinary(this.viewModel.Image.InputStream)).Returns(this.imageBinary);
         }
 
         private void Act()
@@ -62,7 +63,7 @@ namespace CheeseTracker.AspNetMvc.App.UnitTests.CheesesControllerScenarios.Addin
             Expression<Func<Cheese, bool>> expected = x => 
                 x.Name == this.viewModel.Name &&
                 x.Description == this.viewModel.Description &&
-                x.Image == this.base64EncodedImage;
+                x.Image == this.imageBinary;
 
             A.CallTo(() => this.CheeseService.Register(A<Cheese>.That.Matches(expected))).MustHaveHappened();
         }
