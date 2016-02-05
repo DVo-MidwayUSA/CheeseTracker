@@ -123,6 +123,7 @@
     <Compile Include="Injection\Installers\ControllersInstaller.cs" />
     <Compile Include="Injection\WindsorControllerFactory.cs" />
     <Compile Include="Models\AddCheeseViewModel.cs" />
+    <Compile Include="Models\CheeseListingViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

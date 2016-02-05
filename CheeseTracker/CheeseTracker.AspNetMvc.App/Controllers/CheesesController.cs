@@ -2,6 +2,8 @@
 using CheeseTracker.AspNetMvc.Services;
 using CheeseTracker.AspNetMvc.Services.Models;
 using CheeseTracker.Common.Services;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace CheeseTracker.AspNetMvc.App.Controllers
@@ -18,9 +20,12 @@ namespace CheeseTracker.AspNetMvc.App.Controllers
             this.imageConverterService = imageConverterService;
         }
 
-        public ActionResult Index()
+        [HttpGet]
+        public ViewResult Index()
         {
-            return View();
+            var listings = this.cheeseService.GetAll();
+            var viewModel = listings.Select(x => new CheeseListingViewModel { Id = x.Id });
+            return View("Index", viewModel);
         }
 
         [HttpGet]

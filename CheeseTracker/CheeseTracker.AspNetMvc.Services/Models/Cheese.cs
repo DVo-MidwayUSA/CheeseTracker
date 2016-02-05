@@ -9,5 +9,6 @@ namespace CheeseTracker.AspNetMvc.Services.Models
         public Binary Image { get; set; }
 
         public string Description { get; set; }
+        public int Id { get; set; }
     }
 }

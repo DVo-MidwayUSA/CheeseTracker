@@ -1,6 +1,7 @@
 ﻿using CheeseTracker.AspNetMvc.Services.Models;
 using CheeseTracker.Common.DataAccess;
 using System;
+using System.Collections.Generic;
 
 namespace CheeseTracker.AspNetMvc.Services
 {
@@ -28,6 +29,11 @@ namespace CheeseTracker.AspNetMvc.Services
                     });
 
             this.unitOfWork.Save();
+        }
+
+        IEnumerable<Cheese> ICheeseService.GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

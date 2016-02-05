@@ -89,6 +89,7 @@
     <Compile Include="CheesesControllerScenarios\AddingANewCheeseScenarios\PostInvalidModelStateScenarios.cs" />
     <Compile Include="CheesesControllerScenarios\AddingANewCheeseScenarios\PostScenarios.cs" />
     <Compile Include="CheesesControllerScenarios\CheesesControllerScenarioBase.cs" />
+    <Compile Include="CheesesControllerScenarios\ViewingCheesesScenarios\GetScenarios.cs" />
     <Compile Include="HomeControllerScenarios\HomepageDisplayScenarios.cs" />
     <Compile Include="ScenarioBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
